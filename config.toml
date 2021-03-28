@@ -65,11 +65,11 @@ theme = "LoveIt"
       # site description
       description = "Portfolio | Blog | Contact"
       # site keywords
-      keywords = ["Theme", "Hugo"]
+      keywords = ["Machine Learning", "Deep Learning", "Optimization" , "C++", "Python", "System Dynamics", "Data Science"]
       # App icon config
       [languages.en.params.app]
         # optional site title override for the app when added to an iOS home screen or Android launcher
-        title = "LoveIt"
+        title = "Kamal SELVAM"
         # whether to omit favicon resource links
         noFavicon = false
         # modern SVG favicon to use in place of older style .png and .ico files
@@ -141,7 +141,7 @@ theme = "LoveIt"
   # site default theme ("light", "dark", "auto")
   defaultTheme = "auto"
   # public git repo url only then enableGitInfo is true
-  gitRepo = "https://github.com/dillonzq/LoveIt"
+  gitRepo = "https://github.com/kamalbowselvam/LoveIt"
   # which hash function used for SRI, when empty, no SRI is used ("sha256", "sha384", "sha512", "md5")
   fingerprint = ""
   # date format
@@ -460,5 +460,4 @@ theme = "LoveIt"
 [markup]
   # Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
   [markup.highlight]
-    # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
     noClasses = false
