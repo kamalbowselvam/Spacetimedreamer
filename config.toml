@@ -63,7 +63,7 @@ theme = "LoveIt"
    
 	[languages.en.params]
       # site description
-      description = "About LoveIt Theme"
+      description = "Portfolio | Blog | Contact"
       # site keywords
       keywords = ["Theme", "Hugo"]
       # App icon config
