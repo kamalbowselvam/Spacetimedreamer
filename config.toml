@@ -129,9 +129,9 @@ theme = "LoveIt"
           paginate = 6
       # Social config in home page
       [languages.en.params.social]
-        GitHub = "xxxx"
-        Linkedin = ""
-        Twitter = "xxxx"
+        GitHub = "kamalbowselvam"
+        Linkedin = "kamalbowselvam"
+        Twitter = "kamalbowselvam"
         Email = "kamalbowselvam@gmail.com"
         RSS = true
 
