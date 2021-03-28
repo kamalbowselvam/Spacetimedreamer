@@ -61,7 +61,7 @@ theme = "LoveIt"
         title = ""
         weight = 5
    
-	[languages.en.params]
+	  [languages.en.params]
       # site description
       description = "Portfolio | Blog | Contact"
       # site keywords
@@ -160,7 +160,7 @@ theme = "LoveIt"
       # URL of the LOGO
       logo = ""
       # title name
-      name = "Infinity"
+      name = "cd ~"
       # you can add extra information before the name (HTML format is supported), such as icons
       pre = ""
       # you can add extra information after the name (HTML format is supported), such as icons
