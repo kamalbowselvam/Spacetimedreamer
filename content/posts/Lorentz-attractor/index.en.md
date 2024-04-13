@@ -39,8 +39,6 @@ Python scipy library has a powerful ODE solver to simulate these equation. Even 
 
 ```python 
 import numpy as np
-from scipy import integrate
-
 x0 = [1, 1, 1]  # quantities vector [x,y,z]
 sigma=10.0 
 beta=8.0/3 
@@ -48,9 +46,7 @@ rho=28.0
 t = np.linspace(0, 3, 1000)  # time vector 
 ```
 
-
-The fourth order **Runge-Kutta** method also known as **RK4**, is an implicit-explicit iterative numerical integration method that includes the first order **Euler method** 
-
+The fourth order **Runge-Kutta** method also known as **RK4**, is an implicit-explicit iterative numerical integration method that includes the first order **Euler method**.
 
 ```python 
 def rk4(func, tk, _yk, _dt=0.01, **kwargs):
@@ -73,6 +69,29 @@ def rk4(func, tk, _yk, _dt=0.01, **kwargs):
     # return an average of the derivative over tk, tk + dt
     return _yk + (_dt / 6) * (f1 + (2 * f2) + (2 * f3) + f4)
 ```
+
+The above function takes a system of first order equation along with 
+
+```python 
+def lorenz(_t, _y, sigma=10, beta=(8 / 3), rho=28):
+    """
+    lorenz chaotic differential equation: dy/dt = f(t, y)
+    _t: time tk to evaluate system
+    _y: 3D state vector [x, y, z]
+    sigma: constant related to Prandtl number
+    beta: geometric physical property of fluid layer
+    rho: constant related to the Rayleigh number
+    return: [x_dot, y_dot, z_dot]
+    """
+    return np.array([
+        sigma * (_y[1] - _y[0]),
+        _y[0] * (rho - _y[2]) - _y[1],
+        (_y[0] * _y[1]) - (beta * _y[2]),
+    ])
+```
+
+
+
 
 #### Implementation
 ![Lorentrz](Lorenz_system.gif " Figure 2: Lorenz attractor")
