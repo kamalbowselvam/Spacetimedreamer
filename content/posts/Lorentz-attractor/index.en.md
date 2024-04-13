@@ -51,6 +51,6 @@ t = np.linspace(0, 3, 1000)  # time vector
 #### Implementation
 ![Lorentrz](Lorenz_system.gif " Figure 2: Lorenz attractor")
 
-## Conclusion 
-
+## Conclusion
+add conlusion here 
 ## Reference
