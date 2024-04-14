@@ -34,7 +34,9 @@ The equation ```(1), (2) ``` and ```(3)``` are simplified form of heat convectio
 ### Parameters 
 These equations govern  the temporal evolution of three physical quantities, namely $ x $ corresponds to the rate of convection happening between the two plate. $y$ corresponds to the horizontal temperature variation and $ z $ corresponds to the vertical temperature variation. $ \sigma, \rho $ and $ \beta $ are constants of the system. The system is highly sensitive to initial conditions ($\sigma , \rho $ and $\beta$) that we choose. Starting the simulation with a different values of $ \sigma, \rho $ or $\beta $ that are infinitesimally different from each other could create a completely different output. In the following blog, the implementation and simulation of the equation in python is discussed along with visualization. Further, the behaviour of the system is analysed for different values of $ \sigma, \rho $ and $ \beta $ in the next blog post.  
 
-### ODE Solver 
+### Implementation 
+
+
 Python scipy library has a powerful ODE solver to simulate these equation. Even though the ODE solvers are quiet good, using a basic numerical itegration like **Runge-Kutta 4** method gives a better understading of simulation ODE's. 
 
 ```python 
@@ -49,40 +51,24 @@ t = np.linspace(0, 3, 1000)  # time vector
 The fourth order **Runge-Kutta** method also known as **RK4**, is an implicit-explicit iterative numerical integration method that includes the first order **Euler method**.
 
 ```python 
-def rk4(func, tk, _yk, _dt=0.01, **kwargs):
-    """
-    single-step fourth-order numerical integration (RK4) method
-    func: system of first order ODEs
-    tk: current time step
-    _yk: current state vector [y1, y2, y3, ...]
-    _dt: discrete time step size
-    **kwargs: additional parameters for ODE system
-    returns: y evaluated at time k+1
-    """
+def rk4(func, tk, yk, dt=0.01, **kwargs):
+    
 
     # evaluate derivative at several stages within time interval
-    f1 = func(tk, _yk, **kwargs)
-    f2 = func(tk + _dt / 2, _yk + (f1 * (_dt / 2)), **kwargs)
-    f3 = func(tk + _dt / 2, _yk + (f2 * (_dt / 2)), **kwargs)
-    f4 = func(tk + _dt, _yk + (f3 * _dt), **kwargs)
+    f1 = func(tk, yk, **kwargs)
+    f2 = func(tk + dt / 2, yk + (f1 * (dt / 2)), **kwargs)
+    f3 = func(tk + dt / 2, yk + (f2 * (dt / 2)), **kwargs)
+    f4 = func(tk + dt, yk + (f3 * dt), **kwargs)
 
     # return an average of the derivative over tk, tk + dt
-    return _yk + (_dt / 6) * (f1 + (2 * f2) + (2 * f3) + f4)
+    return yk + (dt / 6) * (f1 + (2 * f2) + (2 * f3) + f4)
 ```
 
-The above function takes a system of first order equation along with 
+The above function takes a system of first order equation along with intial vector and time vector and advances temporarily. 
 
 ```python 
 def lorenz(_t, _y, sigma=10, beta=(8 / 3), rho=28):
-    """
-    lorenz chaotic differential equation: dy/dt = f(t, y)
-    _t: time tk to evaluate system
-    _y: 3D state vector [x, y, z]
-    sigma: constant related to Prandtl number
-    beta: geometric physical property of fluid layer
-    rho: constant related to the Rayleigh number
-    return: [x_dot, y_dot, z_dot]
-    """
+   
     return np.array([
         sigma * (_y[1] - _y[0]),
         _y[0] * (rho - _y[2]) - _y[1],
@@ -90,7 +76,7 @@ def lorenz(_t, _y, sigma=10, beta=(8 / 3), rho=28):
     ])
 ```
 
-#### Implementation
+#### Animation
 ![Lorentrz](Lorenz_system.gif " Figure 2: Lorenz attractor")
 
 ## Conclusion
