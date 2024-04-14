@@ -90,9 +90,6 @@ def lorenz(_t, _y, sigma=10, beta=(8 / 3), rho=28):
     ])
 ```
 
-
-
-
 #### Implementation
 ![Lorentrz](Lorenz_system.gif " Figure 2: Lorenz attractor")
 

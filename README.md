@@ -1,0 +1,1 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/28230c2b-6bac-47ee-b0a1-aa30b0b1ada8/deploy-status)](https://app.netlify.com/sites/youthful-khorana-b8b7c4/deploys)
