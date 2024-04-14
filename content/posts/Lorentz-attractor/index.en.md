@@ -53,7 +53,6 @@ The fourth order **Runge-Kutta** method also known as **RK4**, is an implicit-ex
 ```python 
 def rk4(func, tk, yk, dt=0.01, **kwargs):
     
-
     # evaluate derivative at several stages within time interval
     f1 = func(tk, yk, **kwargs)
     f2 = func(tk + dt / 2, yk + (f1 * (dt / 2)), **kwargs)
@@ -67,14 +66,37 @@ def rk4(func, tk, yk, dt=0.01, **kwargs):
 The above function takes a system of first order equation along with intial vector and time vector and advances temporarily. 
 
 ```python 
-def lorenz(_t, _y, sigma=10, beta=(8 / 3), rho=28):
+def lorenz(t, y, sigma=10, beta=(8 / 3), rho=28):
    
     return np.array([
-        sigma * (_y[1] - _y[0]),
-        _y[0] * (rho - _y[2]) - _y[1],
-        (_y[0] * _y[1]) - (beta * _y[2]),
+        sigma * (y[1] - y[0]),
+        y[0] * (rho - y[2]) - y[1],
+        (y[0] * y[1]) - (beta * y[2]),
     ])
 ```
+The fuction above returns the Ordinary Differential Equation as an one dimensional vector. Passing this function in the integration method and looping over the time 
+
+
+```python
+dt = 0.01 # time stepping 
+time = np.arange(0.0, 8.0, dt) # Time vector 
+y0 = np.array([-7, 8, 26]) # intial conditoin 
+
+state_history = [] # Empty list to store state information
+yk = y0
+t = 0
+
+for t in time:
+    # save current state
+    state_history.append(yk)
+    yk = rk4(lorenz, t, yk, dt)
+state_history = np.array(state_history)
+```
+
+As you can see that the with a small change in the initial condition, the output of the system slowly diverges. Lorentz attractor are very sensitive to the intial condition. 
+
+
+
 
 #### Animation
 ![Lorentrz](Lorenz_system.gif " Figure 2: Lorenz attractor")

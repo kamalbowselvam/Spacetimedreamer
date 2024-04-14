@@ -17,4 +17,4 @@ categories: ["System Dynamics"]
 lightgallery: true
 ---
 
-Explaint the implementation and link the github code
+Explain the implementation and link the github code 
