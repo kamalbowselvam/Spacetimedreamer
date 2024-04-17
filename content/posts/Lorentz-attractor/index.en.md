@@ -59,17 +59,17 @@ def rk4(func, tk, yk, dt=0.01, **kwargs):
     f3 = func(tk + dt / 2, yk + (f2 * (dt / 2)), **kwargs)
     f4 = func(tk + dt, yk + (f3 * dt), **kwargs)
 
-    # return an average of the derivative over tk, tk + dt
-    return yk + (dt / 6) * (f1 + (2 * f2) + (2 * f3) + f4)
+# return an average of the derivative over tk, tk + dt
+return yk + (dt / 6) * (f1 + (2 * f2) + (2 * f3) + f4)
 ```
 
-The above function takes a system of first order equation along with intial vector and time vector and advances temporarily. 
+The above function takes a system of first order equation, along with intial vector and time vector and advances temporarily. 
 
 ```python 
 def lorenz(t, y, sigma=10, beta=(8 / 3), rho=28):
-   
-    return np.array([
-        sigma * (y[1] - y[0]),
+
+return np.array([
+    sigma * (y[1] - y[0]),
         y[0] * (rho - y[2]) - y[1],
         (y[0] * y[1]) - (beta * y[2]),
     ])
@@ -93,7 +93,17 @@ for t in time:
 state_history = np.array(state_history)
 ```
 
+To understand the chaotic behaviour of the lorentz system, two simulations were carried out a different value of sigma. Figure 2 below shows the time series signal of the simulations and it could be visualized that intially the trajectory follow the same path , but later on they start diverging away showing the sensitivity of the system with respect to the intial conditions. Intial condition and Boundray conditioin play a vital role in the behaviour of the system. 
+
+![Lorentrz](lorentz.png " Figure 2: Evolution of the state as a fuction of time for two different intial conditions")
+
+
+
+
 As you can see that the with a small change in the initial condition, the output of the system slowly diverges. Lorentz attractor are very sensitive to the intial condition. 
+
+
+
 
 
 
