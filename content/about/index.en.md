@@ -13,6 +13,5 @@ math:
 
 ### About Me
 
-A passionte engineer who loves to work 
+Hey! I am Kamal Selvam, Senior Data Scientist at Orange working on wide range of problems ranging from image processing, time series forecasting to deep learing. I love to work on chaotic systems and simulating them. In this blog you will find article on topics that interest me a lot.  
 
-#### Education
