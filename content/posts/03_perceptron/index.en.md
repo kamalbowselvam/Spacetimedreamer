@@ -1,6 +1,6 @@
 ---
 weight: 4
-title: "Implementation of single layer Perceptron"
+title: "Perceptron"
 date: 2020-06-22T21:57:40+08:00
 lastmod: 2020-01-01T16:45:40+08:00
 draft: false
