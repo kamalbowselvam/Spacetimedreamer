@@ -9,7 +9,7 @@ authorLink: "https://kamalselvam.com"
 description: "This article shows the simulation of lorentz attractor using python."
 resources:
 - name: "featured-image"
-  src: "featured-image.png"
+  src: "lorentz.png"
 
 tags: ["System Dyanmics", "Python"]
 categories: ["System Dynamics"]
