@@ -1,6 +1,6 @@
 ---
 weight: 4
-title: "Gradient Descent"
+title: "Implementing a simple deep learining library from scratch"
 date: 2023-06-01T21:57:40+08:00
 lastmod: 2020-01-01T16:45:40+08:00
 draft: false
@@ -11,8 +11,8 @@ resources:
 - name: "featured-image"
   src: "featured-image.png"
 
-tags: ["Machine Learning", "Python"]
-categories: ["Machine Learning"]
+tags: ["Deep Learning", "Python"]
+categories: ["Deep Learning"]
 
 lightgallery: true
 ---

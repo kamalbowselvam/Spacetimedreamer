@@ -1,6 +1,6 @@
 ---
 weight: 4
-title: "Implementing a simple deep learining library from scratch"
+title: "Computing spectrogram for large audio files"
 date: 2020-12-01T21:57:40+08:00
 lastmod: 2020-01-01T16:45:40+08:00
 draft: false
@@ -11,8 +11,8 @@ resources:
 - name: "featured-image"
   src: "featured-image.png"
 
-tags: ["Deep Learining", "Python"]
-categories: ["Deep Learining"]
+tags: ["Signal Processing", "Python"]
+categories: ["Signal Processing"]
 
 lightgallery: true
 ---
