@@ -11,8 +11,8 @@ resources:
 - name: "featured-image"
   src: "featured-image.png"
 
-tags: ["System Dyanmics", "Python"]
-categories: ["System Dynamics"]
+tags: ["Machine Learning", "Python"]
+categories: ["Machine Learning"]
 
 lightgallery: true
 ---
