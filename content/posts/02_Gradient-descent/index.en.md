@@ -17,11 +17,9 @@ categories: ["Machine Learning"]
 lightgallery: true
 ---
 
- # A Fundamental Optimization Algorithm
-
-Gradient descent is a fundamental optimization algorithm widely used in machine learning and optimization problems. It is employed to minimize a function by iteratively moving in the direction of the steepest descent as indicated by the negative of the gradient. This article aims to elucidate the concepts behind gradient descent, its variants, and its applications in various domains.
 
 ## Introduction
+Gradient descent is a fundamental optimization algorithm widely used in machine learning and optimization problems. It is employed to minimize a function by iteratively moving in the direction of the steepest descent as indicated by the negative of the gradient. This article aims to elucidate the concepts behind gradient descent, its variants, and its applications in various domains.
 
 Before diving into gradient descent, it's crucial to understand the notion of optimization. In optimization, the goal is to find the minimum or maximum of a function. For simplicity, let's focus on minimizing a function, typically denoted as $ \( f(x) \) $, where $ \( x \) $ represents the parameters of the function. The process of finding the minimum of $ \( f(x) \) $ involves iterative steps towards adjusting the parameters $ \( x \) $ until reaching a minimum.
 
