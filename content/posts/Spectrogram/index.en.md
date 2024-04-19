@@ -11,8 +11,8 @@ resources:
 - name: "featured-image"
   src: "featured-image.png"
 
-tags: ["Machine Learning", "Python"]
-categories: ["Machine Learning"]
+tags: ["Signal Processing", "Python"]
+categories: ["Signal Processing"]
 
 lightgallery: true
 ---
