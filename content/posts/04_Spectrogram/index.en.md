@@ -1,7 +1,7 @@
 ---
 weight: 4
 title: "Implementing a simple deep learining library from scratch"
-date: 2019-12-01T21:57:40+08:00
+date: 2020-12-01T21:57:40+08:00
 lastmod: 2020-01-01T16:45:40+08:00
 draft: false
 author: "Kamal SELVAM"
