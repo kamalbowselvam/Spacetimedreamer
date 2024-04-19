@@ -27,17 +27,17 @@ Before diving into gradient descent, it's crucial to understand the notion of op
 
 ## The Gradient
 
-The gradient of a function, denoted as $$\( \nabla f(x) \) $$, is a vector that points in the direction of the steepest increase of the function at a particular point. In other words, it indicates the direction in which the function grows fastest. The negative gradient, $$ \( -\nabla f(x) \)$$, points in the direction of the steepest decrease, which is the direction of the greatest decrease of the function.
+The gradient of a function, denoted as $\( \nabla f(x) \) $, is a vector that points in the direction of the steepest increase of the function at a particular point. In other words, it indicates the direction in which the function grows fastest. The negative gradient, $ \( -\nabla f(x) \)$, points in the direction of the steepest decrease, which is the direction of the greatest decrease of the function.
 
 ## Gradient Descent Algorithm
 
-Gradient descent operates by iteratively updating the parameters \( x \) in the opposite direction of the gradient of the function \( f(x) \) with respect to \( x \). The update rule for gradient descent can be represented as:
+Gradient descent operates by iteratively updating the parameters $\( x \)$ in the opposite direction of the gradient of the function $\( f(x) \)$ with respect to $ \( x \) $. The update rule for gradient descent can be represented as:
 
-\[ x_{t+1} = x_t - \alpha \nabla f(x_t) \]
+$$ \[ x_{t+1} = x_t - \alpha \nabla f(x_t) \] $$
 
 where:
-- \( x_t \) represents the parameters at iteration \( t \).
-- \( \alpha \) (alpha) denotes the learning rate, which controls the step size or the rate at which the parameters are updated.
+- $ \( x_t \) $ represents the parameters at iteration $ \( t \) $.
+- $ \( \alpha \) $ (alpha) denotes the learning rate, which controls the step size or the rate at which the parameters are updated.
 
 The learning rate is a critical hyperparameter in gradient descent. A too small learning rate may result in slow convergence, while a too large learning rate can cause divergence, where the optimization process fails to converge to a minimum.
 
