@@ -97,20 +97,18 @@ To understand the chaotic behaviour of the lorentz system, two simulations were 
 
 ![Lorentrz](lorentz.png " Figure 2: Evolution of the state as a fuction of time for two different intial conditions")
 
-
-
-
-As you can see that the with a small change in the initial condition, the output of the system slowly diverges. Lorentz attractor are very sensitive to the intial condition. 
-
-
-
-
-
-
+As you can see that the with a small change in the initial condition, the output of the system slowly diverges. Lorentz attractor are very sensitive to the intial condition. Figure 3 show the state of lorentz as a function of time, as the system is chaotic it is very difficult to predoi
 
 #### Animation
-![Lorentrz](Lorenz_system.gif " Figure 2: Lorenz attractor")
+![Lorentrz](Lorenz_system.gif " Figure 3: Lorenz attractor")
+
+To understand the chaotic behavior of the Lorentz system, two simulations were conducted with different values of sigma. In Figure 2, the time series signal of the simulations illustrates that initially, the trajectories follow the same path, but gradually diverge, showcasing the system's sensitivity to initial conditions. Initial and boundary conditions play a crucial role in determining the system's behavior.
+
+Indeed, even a slight alteration in the initial condition leads to a gradual divergence in the system's output. Lorentz attractors exhibit remarkable sensitivity to initial conditions. Figure 3 depicts the state of the Lorentz system over time. Due to its chaotic nature, predicting the behavior becomes exceedingly challenging.
 
 ## Conclusion
-add conlusion here 
+The simulations conducted on the Lorentz system vividly demonstrate its chaotic behavior and sensitivity to initial conditions. As showcased in the time series signal and state plots, even minor deviations in initial conditions result in significant divergence in system trajectories. These findings underscore the complexity and unpredictability inherent in chaotic systems like the Lorentz attractor, emphasizing the importance of understanding and carefully managing initial and boundary conditions in modeling and analysis. 
+
 ## Reference
+
+[^1]: Lorrentz attractor [supporting link](https://website.comhttps://en.wikipedia.org/wiki/Lorenz_system).
