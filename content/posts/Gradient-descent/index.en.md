@@ -23,7 +23,7 @@ Gradient descent is a fundamental optimization algorithm widely used in machine 
 
 ## Introduction
 
-Before diving into gradient descent, it's crucial to understand the notion of optimization. In optimization, the goal is to find the minimum or maximum of a function. For simplicity, let's focus on minimizing a function, typically denoted as $$ \( f(x) \) $$, where $$ \( x \) $$ represents the parameters of the function. The process of finding the minimum of $$ \( f(x) \) $$ involves iterative steps towards adjusting the parameters $$ \( x \) $$ until reaching a minimum.
+Before diving into gradient descent, it's crucial to understand the notion of optimization. In optimization, the goal is to find the minimum or maximum of a function. For simplicity, let's focus on minimizing a function, typically denoted as $ \( f(x) \) $, where $ \( x \) $ represents the parameters of the function. The process of finding the minimum of $ \( f(x) \) $ involves iterative steps towards adjusting the parameters $ \( x \) $ until reaching a minimum.
 
 ## The Gradient
 
