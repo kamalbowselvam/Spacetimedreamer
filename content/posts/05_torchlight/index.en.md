@@ -17,5 +17,4 @@ categories: ["Deep Learning"]
 lightgallery: true
 ---
 
-
 # Article in development 
