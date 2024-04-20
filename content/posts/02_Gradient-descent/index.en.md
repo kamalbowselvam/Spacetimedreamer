@@ -63,7 +63,7 @@ def randomDataGenerator():
 ```
 
 &nbsp;
-![Lorentrz](rayleigh.png " Figure 1: Synthetic data generated using $ y = \theta _{0} * x + \theta _{1} $ ")
+![synthetic](synthetic.png " Figure 1: Synthetic data generated using $ y = \theta _{0} * x + \theta _{1} $ ")
 
 
 ## Conclusion
