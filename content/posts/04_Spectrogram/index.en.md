@@ -6,7 +6,7 @@ lastmod: 2020-01-01T16:45:40+08:00
 draft: false
 author: "Kamal SELVAM"
 authorLink: "https://kamalselvam.com"
-description: "This article shows the implementation of Gradient Descent Algorithm"
+description: "Implementation of Spectrogram for large audio files"
 resources:
 - name: "featured-image"
   src: "featured-image.png"

@@ -6,7 +6,7 @@ lastmod: 2021-04-17T16:45:40+08:00
 draft: false
 author: "Kamal SELVAM"
 authorLink: "https://kamalselvam.com"
-description: "This article shows the simulation of lorentz attractor using python."
+description: "Simulation of lorentz attractor using python."
 resources:
 - name: "featured-image"
   src: "lorentz.png"

@@ -6,10 +6,10 @@ lastmod: 2020-01-01T16:45:40+08:00
 draft: false
 author: "Kamal SELVAM"
 authorLink: "https://kamalselvam.com"
-description: "This article shows the implementation of Gradient Descent Algorithm"
+description: "Implementation of Gradient Descent Algorithm"
 resources:
 - name: "featured-image"
-  src: "featured-image.png"
+  src: "fit.gif"
 
 tags: ["Machine Learning", "Python"]
 categories: ["Machine Learning"]
@@ -72,7 +72,7 @@ Once the data is generated, A cost function for linear regression is defined to 
 
 The formula for the MSE cost function is as follows:
 
-> $$ J(\theta) = \frac{1}{m} \sum_{i=1}^{m} (h_{\theta}(x_{i}) - y_{i})^{2} $$
+> $$ \tag{1} J(\theta) = \frac{1}{m} \sum_{i=1}^{m} (h_{\theta}(x_{i}) - y_{i})^{2} $$
 
 Here, 
 - $ J(\theta) $ is the cost function.
@@ -80,18 +80,16 @@ Here,
 - $ h_{\theta}(x_{i}) $ represents the predicted value of the i-th example using parameters $  \theta $.
 - $ y_{i} $ is the actual value of the i-th example.
 
- The parameters are the coefficients (slope and intercept) of the linear equation. To perform gradient descent, we need the partial derivatives of the cost function with respect to each parameter. These derivatives indicate the direction and magnitude of the parameter update that will decrease the cost [[1]](#1).
+The parameters are the coefficients (slope and intercept) of the linear equation. To perform gradient descent, we need the partial derivatives of the cost function with respect to each parameter. These derivatives indicate the direction and magnitude of the parameter update that will decrease the cost [[1]](#1).
 
-1. Partial derivative with respect to the intercept $ \theta_{0} $:
-> $$ \frac{\partial }{\partial \theta _{0}}
+Partial derivative with respect to the intercept $ \theta_{0} $:
 
-# > $$ \frac{\partial }{\partial \theta _{0}}  J (\theta) = \frac{2}{m} \sum_{i=1}^{m} ( h_{\theta}(x_{i}) - y_{i} ) $$
+> $$ \tag{2} \frac{\partial}{\partial \theta _{0}} J (\theta) = \frac{2}{m} \sum _{i=1}^{m} (h _{\theta}(x _{i}) - y _{i})$$
 
-2. Partial derivative with respect to the slope $ \theta_{1} $:
-> $$ \frac{\partial }{\partial \theta _{1}}  J (\theta) = \frac{2}{m} \sum_{i=1}^{m} ( h_{\theta}(x_{i}) - y_{i} )  x_{i} $$
+Partial derivative with respect to the slope $ \theta_{1} $:
+> $$ \tag{3} \frac{\partial }{\partial \theta _{1}}  J (\theta) = \frac {2}{m} \sum _{i=1}^{m} ( h _{\theta}(x _{i}) - y _{i} )  \cdot x _{i} $$
 
-These equations show how much the cost function will change if we change each parameter slightly. The hypothesis used to create the synthetic data can be denoted as  $ H ( \theta)  $. To obtain the model parameters, we employ gradient descent by taking the derivative of the function with respect to the parameters. The following function implements the gradient descent algorithm. In each iteration, the parameters are updated by subtracting the derivative multiplied by the learning rate $ \alpha $. Convergence is determined by a threshold, which measures the change in parameter values between two consecutive iterations."
-
+These equations show how much the cost function will change if we change each parameter slightly. The hypothesis used to create the synthetic data can be denoted as $ H( \theta)  $. To obtain the model parameters, we employ gradient descent by taking the derivative of the function with respect to the parameters. The following function implements the gradient descent algorithm. At each iteration, the parameters are updated by subtracting the derivative multiplied by the learning rate $ \alpha $. Convergence of the algorithm is determined by a threshold, which measures the change in parameter values between two consecutive iterations."
 
 ```python 
 def hypothesis(x, theta0, theta1):
@@ -103,19 +101,57 @@ def gradientDescent(m,c,x,y):
     i = 1
     threshold = 999999
     while threshold > 10e-20:
-        d_m = (np.sum((y - hypothesis(x,m,c)) * x)) * (-2/len(x))
-        d_c = (np.sum( y - hypothesis(x,m,c)))      *  (-2/len(x))
+        d_m = (np.sum((hypothesis(x,m,c) - y ) * x)) * (2/len(x))
+        d_c = (np.sum(hypothesis(x,m,c) - y )) *  (2/len(x))
         old_m = m
         all_m.append(m)
         all_c.append(c)
         m = m - 0.01 * d_m
-        c = c - 0.01 * d_c
+        c = c - 0.01  * d_c
         threshold = abs(old_m - m)
         i = i +1
+        print(m,c, threshold)
     return all_m, all_c
 ```
 
+The values of the slope and the bias are stored in a variable, that is later used for visualization. The code below uses all the function defined above to create and fit a linea regression model using gradient descent algroithm 
 
+```python 
+dataX, dataY, theta0_init, theta1_init = randomDataGenerator()
+
+theta0_grid = np.linspace(-10, 15, 101)
+theta1_grid = np.linspace(-10, 15, 101)
+Z = cost_func_3d(theta0_grid[np.newaxis, :, np.newaxis],
+                theta1_grid[:, np.newaxis, np.newaxis],
+                dataX,dataY)
+
+X, Y = np.meshgrid(theta0_grid, theta1_grid)
+all_m, all_c = gradientDescent(m=-10, c=10, x=dataX, y=dataY)
+
+fig = plt.figure()
+ax = plt.axes()
+ax.contour(X, Y, Z, 100)
+plt.title('Contour Plot for Grandient Descent Convergence')
+plt.xlabel('Theta 0')
+plt.ylabel('Theta 1')
+plt.scatter(0.9992458979704978, 5.015957571468284, color='blue')
+line, = ax.plot([], [],'r-', lw=2)
+annotation = ax.text(-1, 700000, '')
+annotation.set_animated(True)
+
+anim = animation.FuncAnimation(fig, animate, init_func=init, frames=2000, interval=1, blit=True)
+writer = animation.PillowWriter(fps=30,metadata=dict(artist='Me'),bitrate=1800)
+anim.save('contour.gif', writer=writer) 
+plt.show()
+```
+The converge of the algorithm for the synthetic data can be seen in below Figure 
+
+![Lorentrz](fit.gif " Figure 3: Convergence of gradient descent algorithm on the synthetic data")
+
+
+The convergence of the model parameters could be visualized using contour plot as show below 
+
+![Lorentr](scatter.gif " Figure 3: Countor plot converegence of model parameters")
 
 ## Conclusion
 
