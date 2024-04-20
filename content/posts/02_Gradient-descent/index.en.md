@@ -29,7 +29,7 @@ The gradient of a function, denoted as $ \nabla f(x) $, is a vector that points 
 
 ## Gradient Descent Algorithm
 
-Gradient descent operates by iteratively updating the parameters $\( x \)$ in the opposite direction of the gradient of the function $ f(x) $ with respect to $  x $. The update rule for gradient descent can be represented as:
+Gradient descent operates by iteratively updating the parameters $ x $ in the opposite direction of the gradient of the function $ f(x) $ with respect to $ x $. The update rule for gradient descent can be represented as:
 
 $$  x_{t+1} = x_t - \alpha \nabla f(x_t)  $$
 
@@ -80,13 +80,13 @@ Here,
 - $ h_{\theta}(x_{i}) $ represents the predicted value of the i-th example using parameters $  \theta $.
 - $ y_{i} $ is the actual value of the i-th example.
 
- The parameters are the coefficients (slope and intercept) of the linear equation. To perform gradient descent, we need the partial derivatives of the cost function with respect to each parameter. These derivatives indicate the direction and magnitude of the parameter update that will decrease the cost [1].
+ The parameters are the coefficients (slope and intercept) of the linear equation. To perform gradient descent, we need the partial derivatives of the cost function with respect to each parameter. These derivatives indicate the direction and magnitude of the parameter update that will decrease the cost [[1]](#1).
 
 1. Partial derivative with respect to the intercept $ \theta_{0} $:
-   > $$ \frac {\partial }{\partial \theta _{0}}  J (\theta) = \frac {2}{m} \sum_{i=1}^{m} ( h_{\theta}(x_{i}) - y_{i} ) $$
+> $$ \frac {\partial }{\partial \theta _{0}}  J (\theta) = \frac {2}{m} \sum_{i=1}^{m} ( h_{\theta}(x_{i}) - y_{i} ) $$
 
 2. Partial derivative with respect to the slope $ \theta_{1} $:
-   > $$ \frac {\partial }{\partial \theta _{1}}  J (\theta) = \frac {2}{m} \sum_{i=1}^{m} ( h_{\theta}(x_{i}) - y_{i} ) x_{i} $$
+> $$ \frac {\partial }{\partial \theta _{1}}  J (\theta) = \frac {2}{m} \sum_{i=1}^{m} ( h_{\theta}(x_{i}) - y_{i} ) x_{i} $$
 
 These equations show how much the cost function will change if we change each parameter slightly. The hypothesis used to create the synthetic data can be denoted as  $ H ( \theta)  $. To obtain the model parameters, we employ gradient descent by taking the derivative of the function with respect to the parameters. The following function implements the gradient descent algorithm. In each iteration, the parameters are updated by subtracting the derivative multiplied by the learning rate $ \alpha $. Convergence is determined by a threshold, which measures the change in parameter values between two consecutive iterations."
 
@@ -123,4 +123,4 @@ Gradient descent is a powerful optimization algorithm used to minimize functions
 
 ## Reference
 
-[1]: Smith, J. (2020). *Introduction to Markdown*. Markdown Publishing. [https://markdownpublishing.com](https://markdownpublishing.com)
+<a id="1">[1]</a> : Smith, J. (2020). *Introduction to Markdown*. Markdown Publishing. [https://markdownpublishing.com](https://markdownpublishing.com)

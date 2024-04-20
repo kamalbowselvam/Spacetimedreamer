@@ -19,7 +19,7 @@ lightgallery: true
 
 ## Introduction 
 
-[Lorenz system](https://mathworld.wolfram.com/LorenzAttractor.html) is one of the well studied non-linear model in [system dynamics](https://en.wikipedia.org/wiki/System_dynamics). Even though being well explored and simulated, it is a beautiful simplistic system that showcase **chaotic behaviour** for particular set of initial conditions. The non-linear differential equations were initially studied by N. Lorenz, a meteorologist during 1963. 
+[Lorenz system](https://mathworld.wolfram.com/LorenzAttractor.html) [[1]](#1) is one of the well studied non-linear model in [system dynamics](https://en.wikipedia.org/wiki/System_dynamics). Even though being well explored and simulated, it is a beautiful simplistic system that showcase **chaotic behaviour** for particular set of initial conditions. The non-linear differential equations were initially studied by N. Lorenz, a meteorologist during 1963. 
 
 >  $$ \tag{1} \frac {dx}{dt} = \sigma (y - x) $$
 >  $$ \tag{2} \frac {dy}{dt} = x(\rho -z ) - y $$ 
@@ -111,4 +111,4 @@ The simulations conducted on the Lorentz system vividly demonstrate its chaotic 
 
 ## Reference
 
-[^1]: Lorrentz attractor [supporting link](https://website.comhttps://en.wikipedia.org/wiki/Lorenz_system).
+<a id="1">[1]</a> : Lorrentz attractor [supporting link](https://website.comhttps://en.wikipedia.org/wiki/Lorenz_system).
