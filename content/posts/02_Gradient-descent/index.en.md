@@ -41,26 +41,30 @@ The learning rate is a critical hyperparameter in gradient descent. A too small 
 
 ## Implementation 
 
-Initially a synthetic data is generated via the function randomDataGenerator. Using np.arange(), an array of x values ranging from 0 to 5 with a step size of 0.01 is created. Then, the slope and bias value are sampled from a normal distribution of 1 and 5 respectively. Later, y values for each x value using the equation of a straight line: $ y = \theta _{0} * x + \theta _{1} $.
+Initially a synthetic data is generated via the function randomDataGenerator. Using np.arange(), an array of x values ranging from 0 to 5 with a step size of 0.01 is created. Then, the slope and bias value are sampled from a normal distribution of mean 1 and 5 respectively. Later, y values for each x value using the equation of a straight line: $ y = \theta _{0} * x + \theta _{1} $.
 
 
 ```python 
 def randomDataGenerator():
     """
 
-    :param theta0_init: slope
-    :param theta1_init: bias
+    :param theta0: slope
+    :param theta1: bias
     :return: data x,y
     """
 
     x = np.arange(start=0, stop=5, step=0.01)
     n_rnd = 500
-    theta0_init = np.random.normal(loc=1, scale=0.1, size=n_rnd)
-    theta1_init = np.random.normal(loc=5, scale=0.2, size=n_rnd)
+    theta0 = np.random.normal(loc=1, scale=0.1, size=n_rnd)
+    theta1 = np.random.normal(loc=5, scale=0.2, size=n_rnd)
     y = theta0_init * x + theta1_init
     return x , y, theta0_init, theta1_init
 
 ```
+
+&nbsp;
+![Lorentrz](rayleigh.png " Figure 1: Synthetic data generated using $ y = \theta _{0} * x + \theta _{1} $ ")
+
 
 ## Conclusion
 
