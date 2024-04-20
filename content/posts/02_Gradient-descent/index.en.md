@@ -19,7 +19,7 @@ lightgallery: true
 
 
 ## Introduction
-Gradient descent is a fundamental optimization algorithm widely used in machine learning and optimization problems. It is employed to minimize a function by iteratively moving in the direction of the steepest descent as indicated by the negative of the gradient. This article aims to elucidate the concepts behind gradient descent, its variants, and its applications in various domains.
+Gradient descent is a fundamental optimization algorithm widely used in machine learning and optimization problems. It is employed to minimize a function by iteratively moving in the direction of the steepest descent as indicated by the negative of the gradient. This article aims to explain the concepts behind gradient descent and its implementation in python.
 
 Before diving into gradient descent, it's crucial to understand the notion of optimization. In optimization, the goal is to find the minimum or maximum of a function. For simplicity, let's focus on minimizing a function, typically denoted as $ \( f(x) \) $, where $ \( x \) $ represents the parameters of the function. The process of finding the minimum of $ \( f(x) \) $ involves iterative steps towards adjusting the parameters $ \( x \) $ until reaching a minimum.
 
@@ -39,28 +39,26 @@ where:
 
 The learning rate is a critical hyperparameter in gradient descent. A too small learning rate may result in slow convergence, while a too large learning rate can cause divergence, where the optimization process fails to converge to a minimum.
 
-## Variants of Gradient Descent
+## Implementation 
 
-1. **Batch Gradient Descent**: In batch gradient descent, the gradient is computed using the entire dataset. It guarantees convergence to the global minimum for convex functions but can be computationally expensive for large datasets.
+```python 
 
-2. **Stochastic Gradient Descent (SGD)**: SGD computes the gradient using only one randomly chosen sample from the dataset at each iteration. It is computationally less expensive but exhibits high variance in the direction of the gradient.
+def randomDataGenerator():
+    """
 
-3. **Mini-batch Gradient Descent**: Mini-batch gradient descent combines the advantages of both batch and stochastic gradient descent by computing the gradient using a small subset (mini-batch) of the dataset.
+    :param theta0_init: slope
+    :param theta1_init: bias
+    :return: data x,y
+    """
 
-4. **Momentum**: Momentum is a technique that accelerates convergence by accumulating a momentum term that increases the step size for dimensions that consistently decrease.
+    x = np.arange(start=0, stop=5, step=0.01)
+    n_rnd = 500
+    theta0_init = np.random.normal(loc=1, scale=0.1, size=n_rnd)
+    theta1_init = np.random.normal(loc=5, scale=0.2, size=n_rnd)
+    y = theta0_init * x + theta1_init
+    return x , y, theta0_init, theta1_init
 
-5. **Adam**: Adam (Adaptive Moment Estimation) is an adaptive learning rate optimization algorithm that computes adaptive learning rates for each parameter.
-
-## Applications
-
-Gradient descent is ubiquitous in machine learning and optimization tasks, including but not limited to:
-
-- Training neural networks.
-- Linear regression and logistic regression.
-- Support Vector Machines (SVM).
-- Reinforcement learning.
-- Image and signal processing.
-- Natural Language Processing (NLP).
+```
 
 ## Conclusion
 
