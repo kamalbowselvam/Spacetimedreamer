@@ -83,8 +83,9 @@ Here,
  The parameters are the coefficients (slope and intercept) of the linear equation. To perform gradient descent, we need the partial derivatives of the cost function with respect to each parameter. These derivatives indicate the direction and magnitude of the parameter update that will decrease the cost [[1]](#1).
 
 1. Partial derivative with respect to the intercept $ \theta_{0} $:
+> $$ \frac{\partial }{\partial \theta _{0}}
 
-> $$ \frac{\partial }{\partial \theta _{0}}  J (\theta) = \frac{2}{m} \sum_{i=1}^{m} ( h_{\theta}(x_{i}) - y_{i} ) $$
+# > $$ \frac{\partial }{\partial \theta _{0}}  J (\theta) = \frac{2}{m} \sum_{i=1}^{m} ( h_{\theta}(x_{i}) - y_{i} ) $$
 
 2. Partial derivative with respect to the slope $ \theta_{1} $:
 > $$ \frac{\partial }{\partial \theta _{1}}  J (\theta) = \frac{2}{m} \sum_{i=1}^{m} ( h_{\theta}(x_{i}) - y_{i} )  x_{i} $$
