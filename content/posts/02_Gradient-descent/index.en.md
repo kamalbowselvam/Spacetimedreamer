@@ -41,8 +41,10 @@ The learning rate is a critical hyperparameter in gradient descent. A too small 
 
 ## Implementation 
 
-```python 
+Initially a synthetic data is generated via the function randomDataGenerator. Using np.arange(), an array of x values ranging from 0 to 5 with a step size of 0.01 is created. Then, the slope and bias value are sampled from a normal distribution of 1 and 5 respectively. Later, y values for each x value using the equation of a straight line: $ y = \theta * x + \theta $.
 
+
+```python 
 def randomDataGenerator():
     """
 
