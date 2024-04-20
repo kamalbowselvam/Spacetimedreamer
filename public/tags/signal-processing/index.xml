@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Signal Processing - Tag - Kamal SELVAM</title>
+        <link>http://localhost:1313/tags/signal-processing/</link>
+        <description>Signal Processing - Tag - Kamal SELVAM</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 23 Dec 2020 21:57:40 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/tags/signal-processing/" rel="self" type="application/rss+xml" /><item>
+    <title>Spectrogram for large audio</title>
+    <link>http://localhost:1313/posts/04_spectrogram/</link>
+    <pubDate>Wed, 23 Dec 2020 21:57:40 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>http://localhost:1313/posts/04_spectrogram/</guid>
+    <description><![CDATA[Article in development ]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KME923RY2G"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-KME923RY2G');
+        </script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Lorentz Attractor - Kamal SELVAM</title><meta name="Description" content="This article shows the simulation of lorentz attractor using python."><meta property="og:url" content="http://localhost:1313/posts/01_lorentz-attractor/">
+  <meta property="og:site_name" content="Kamal SELVAM">
+  <meta property="og:title" content="Lorentz Attractor">
+  <meta property="og:description" content="This article shows the simulation of lorentz attractor using python.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+  <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2019-04-17T10:57:40+08:00">
+    <meta property="article:modified_time" content="2021-04-17T16:45:40+08:00">
+    <meta property="article:tag" content="System Dyanmics">
+    <meta property="article:tag" content="Python">
+    <meta property="og:image" content="http://localhost:1313/posts/01_lorentz-attractor/lorentz.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/posts/01_lorentz-attractor/lorentz.png"><meta name="twitter:title" content="Lorentz Attractor">
+<meta name="twitter:description" content="This article shows the simulation of lorentz attractor using python.">
+      <meta name="twitter:site" content="@kamalbowselvam">
+<meta name="application-name" content="Kamal SELVAM">
+<meta name="apple-mobile-web-app-title" content="Kamal SELVAM"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/posts/01_lorentz-attractor/" /><link rel="next" href="http://localhost:1313/posts/02_gradient-descent/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Lorentz Attractor",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/posts\/01_lorentz-attractor\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/localhost:1313\/posts\/01_lorentz-attractor\/lorentz.png",
+                            "width":  1730 ,
+                            "height":  443 
+                        }],"genre": "posts","keywords": "System Dyanmics, Python","wordcount":  1079 ,
+        "url": "http:\/\/localhost:1313\/posts\/01_lorentz-attractor\/","datePublished": "2019-04-17T10:57:40+08:00","dateModified": "2021-04-17T16:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/localhost:1313\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "Kamal SELVAM"
+            },"description": "This article shows the simulation of lorentz attractor using python."
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Kamal SELVAM"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Kamal SELVAM"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Lorentz Attractor</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://kamalselvam.com" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Kamal SELVAM</a></span>&nbsp;<span class="post-category">included in <a href="/categories/system-dynamics/"><i class="far fa-folder fa-fw"></i>System Dynamics</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-04-17">2019-04-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1079 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;6 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/01_lorentz-attractor/lorentz.png"
+        data-srcset="/posts/01_lorentz-attractor/lorentz.png, /posts/01_lorentz-attractor/lorentz.png 1.5x, /posts/01_lorentz-attractor/lorentz.png 2x"
+        data-sizes="auto"
+        alt="/posts/01_lorentz-attractor/lorentz.png"
+        title="This article shows the simulation of lorentz attractor using python." /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#simulation">Simulation</a>
+      <ul>
+        <li><a href="#parameters">Parameters</a></li>
+        <li><a href="#implementation">Implementation</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
+<p><a href="https://mathworld.wolfram.com/LorenzAttractor.html" target="_blank" rel="noopener noreffer">Lorenz system</a> <a href="#1" rel="">[1]</a> is one of the well studied non-linear model in <a href="https://en.wikipedia.org/wiki/System_dynamics" target="_blank" rel="noopener noreffer">system dynamics</a>. Even though being well explored and simulated, it is a beautiful simplistic system that showcase <strong>chaotic behaviour</strong> for particular set of initial conditions. The non-linear differential equations were initially studied by N. Lorenz, a meteorologist during 1963.</p>
+<blockquote>
+<p>$$ \tag{1} \frac {dx}{dt} = \sigma (y - x) $$
+$$ \tag{2} \frac {dy}{dt} = x(\rho -z ) - y $$
+$$ \tag{3} \frac {dz}{dt} = xy - \beta z $$</p>
+</blockquote>
+<p>The equation <code>(1), (2) </code> and <code>(3)</code> are simplified form of heat convection in earth atmosphere which is governed by the famous <a href="https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_equations" target="_blank" rel="noopener noreffer">Navier-stokes equation</a>. These equations could help to model and understand natural heat convection in fluid dynamics. Heat convection is the physical process where transfer of heat occurs due to movement of the fluid. Figure 1 shows a typical experimental setup for understanding heat convection. It consist of fluid between two parallel plates. When the bottom plate is exposed to hot temperature and top plate to ambient room temperature, this creates a linear heat gradient between the two plates. The hot fluid near the bottom plate is less dense, compared to cold fluid on top. This difference in the density, causes the cold fluid to move down towards the bottom due to gravity and the hot fluid to raise up. A continous cycle of the fluid movement is established, creating a cell like structure in between the parallel plates called convection cells as depicted in Figure 1. This pattern of convection cells are also called <strong>Rayleigh-Bernad</strong> convection cells, named after Lord Rayleigh, who sucessfully analyzed the structure in 1916. <br>
+ 
+<figure><a class="lightgallery" href="/posts/01_lorentz-attractor/rayleigh.png" title="Lorentrz" data-thumbnail="/posts/01_lorentz-attractor/rayleigh.png" data-sub-html="<h2> Figure 1: Rayleigh bernad convection cells between a hot and cold plate that contain fluid inbetween them</h2><p>Lorentrz</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="rayleigh.png"
+            data-srcset="/posts/01_lorentz-attractor/rayleigh.png, rayleigh.png 1.5x, /posts/01_lorentz-attractor/rayleigh.png 2x"
+            data-sizes="auto"
+            alt="/posts/01_lorentz-attractor/rayleigh.png" />
+    </a><figcaption class="image-caption"> Figure 1: Rayleigh bernad convection cells between a hot and cold plate that contain fluid inbetween them</figcaption>
+    </figure></p>
+<h2 id="simulation">Simulation</h2>
+<h3 id="parameters">Parameters</h3>
+<p>These equations govern  the temporal evolution of three physical quantities, namely $ x $ corresponds to the rate of convection happening between the two plate. $y$ corresponds to the horizontal temperature variation and $ z $ corresponds to the vertical temperature variation. $ \sigma, \rho $ and $ \beta $ are constants of the system. The system is highly sensitive to initial conditions ($\sigma , \rho $ and $\beta$) that we choose. Starting the simulation with a different values of $ \sigma, \rho $ or $\beta $ that are infinitesimally different from each other could create a completely different output. In the following blog, the implementation and simulation of the equation in python is discussed along with visualization. Further, the behaviour of the system is analysed for different values of $ \sigma, \rho $ and $ \beta $ in the next blog post.</p>
+<h3 id="implementation">Implementation</h3>
+<p>Python scipy library has a powerful ODE solver to simulate these equation. Even though the ODE solvers are quiet good, using a basic numerical itegration like <strong>Runge-Kutta 4</strong> method gives a better understading of simulation ODE&rsquo;s.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="n">x0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># quantities vector [x,y,z]</span>
+</span></span><span class="line"><span class="cl"><span class="n">sigma</span><span class="o">=</span><span class="mf">10.0</span> 
+</span></span><span class="line"><span class="cl"><span class="n">beta</span><span class="o">=</span><span class="mf">8.0</span><span class="o">/</span><span class="mi">3</span> 
+</span></span><span class="line"><span class="cl"><span class="n">rho</span><span class="o">=</span><span class="mf">28.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c1"># time vector </span>
+</span></span></code></pre></div><p>The fourth order <strong>Runge-Kutta</strong> method also known as <strong>RK4</strong>, is an implicit-explicit iterative numerical integration method that includes the first order <strong>Euler method</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">rk4</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">tk</span><span class="p">,</span> <span class="n">yk</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># evaluate derivative at several stages within time interval</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f1</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span> <span class="n">yk</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f2</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">tk</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">yk</span> <span class="o">+</span> <span class="p">(</span><span class="n">f1</span> <span class="o">*</span> <span class="p">(</span><span class="n">dt</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f3</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">tk</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">yk</span> <span class="o">+</span> <span class="p">(</span><span class="n">f2</span> <span class="o">*</span> <span class="p">(</span><span class="n">dt</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f4</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">tk</span> <span class="o">+</span> <span class="n">dt</span><span class="p">,</span> <span class="n">yk</span> <span class="o">+</span> <span class="p">(</span><span class="n">f3</span> <span class="o">*</span> <span class="n">dt</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># return an average of the derivative over tk, tk + dt</span>
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="n">yk</span> <span class="o">+</span> <span class="p">(</span><span class="n">dt</span> <span class="o">/</span> <span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">f1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">f2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">f3</span><span class="p">)</span> <span class="o">+</span> <span class="n">f4</span><span class="p">)</span>
+</span></span></code></pre></div><p>The above function takes a system of first order equation, along with intial vector and time vector and advances temporarily.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">lorenz</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span> <span class="o">/</span> <span class="mi">3</span><span class="p">),</span> <span class="n">rho</span><span class="o">=</span><span class="mi">28</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sigma</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">rho</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="n">beta</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">])</span>
+</span></span></code></pre></div><p>The fuction above returns the Ordinary Differential Equation as an one dimensional vector. Passing this function in the integration method and looping over the time</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># time stepping </span>
+</span></span><span class="line"><span class="cl"><span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span> <span class="c1"># Time vector </span>
+</span></span><span class="line"><span class="cl"><span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">26</span><span class="p">])</span> <span class="c1"># intial conditoin </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">state_history</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># Empty list to store state information</span>
+</span></span><span class="line"><span class="cl"><span class="n">yk</span> <span class="o">=</span> <span class="n">y0</span>
+</span></span><span class="line"><span class="cl"><span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">time</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># save current state</span>
+</span></span><span class="line"><span class="cl">    <span class="n">state_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yk</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">yk</span> <span class="o">=</span> <span class="n">rk4</span><span class="p">(</span><span class="n">lorenz</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">yk</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">state_history</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">state_history</span><span class="p">)</span>
+</span></span></code></pre></div><p>To understand the chaotic behaviour of the lorentz system, two simulations were carried out a different value of sigma. Figure 2 below shows the time series signal of the simulations and it could be visualized that intially the trajectory follow the same path , but later on they start diverging away showing the sensitivity of the system with respect to the intial conditions. Intial condition and Boundray conditioin play a vital role in the behaviour of the system.</p>
+<p><figure><a class="lightgallery" href="/posts/01_lorentz-attractor/lorentz.png" title="Lorentrz" data-thumbnail="/posts/01_lorentz-attractor/lorentz.png" data-sub-html="<h2> Figure 2: Evolution of the state as a fuction of time for two different intial conditions</h2><p>Lorentrz</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="lorentz.png"
+            data-srcset="/posts/01_lorentz-attractor/lorentz.png, lorentz.png 1.5x, /posts/01_lorentz-attractor/lorentz.png 2x"
+            data-sizes="auto"
+            alt="/posts/01_lorentz-attractor/lorentz.png" />
+    </a><figcaption class="image-caption"> Figure 2: Evolution of the state as a fuction of time for two different intial conditions</figcaption>
+    </figure></p>
+<p>As you can see that the with a small change in the initial condition, the output of the system slowly diverges. Lorentz attractor are very sensitive to the intial condition. Figure 3 show the state of lorentz as a function of time, as the system is chaotic it is very difficult to predoi</p>
+<h4 id="animation">Animation</h4>
+<p><figure><a class="lightgallery" href="/posts/01_lorentz-attractor/Lorenz_system.gif" title="Lorentrz" data-thumbnail="/posts/01_lorentz-attractor/Lorenz_system.gif" data-sub-html="<h2> Figure 3: Lorenz attractor</h2><p>Lorentrz</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="Lorenz_system.gif"
+            data-srcset="/posts/01_lorentz-attractor/Lorenz_system.gif, Lorenz_system.gif 1.5x, /posts/01_lorentz-attractor/Lorenz_system.gif 2x"
+            data-sizes="auto"
+            alt="/posts/01_lorentz-attractor/Lorenz_system.gif" />
+    </a><figcaption class="image-caption"> Figure 3: Lorenz attractor</figcaption>
+    </figure></p>
+<p>To understand the chaotic behavior of the Lorentz system, two simulations were conducted with different values of sigma. In Figure 2, the time series signal of the simulations illustrates that initially, the trajectories follow the same path, but gradually diverge, showcasing the system&rsquo;s sensitivity to initial conditions. Initial and boundary conditions play a crucial role in determining the system&rsquo;s behavior.</p>
+<p>Indeed, even a slight alteration in the initial condition leads to a gradual divergence in the system&rsquo;s output. Lorentz attractors exhibit remarkable sensitivity to initial conditions. Figure 3 depicts the state of the Lorentz system over time. Due to its chaotic nature, predicting the behavior becomes exceedingly challenging.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The simulations conducted on the Lorentz system vividly demonstrate its chaotic behavior and sensitivity to initial conditions. As showcased in the time series signal and state plots, even minor deviations in initial conditions result in significant divergence in system trajectories. These findings underscore the complexity and unpredictability inherent in chaotic systems like the Lorentz attractor, emphasizing the importance of understanding and carefully managing initial and boundary conditions in modeling and analysis.</p>
+<h2 id="reference">Reference</h2>
+<p><!-- raw HTML omitted -->[1]<!-- raw HTML omitted --> : Lorrentz attractor <a href="https://website.comhttps://en.wikipedia.org/wiki/Lorenz_system" target="_blank" rel="noopener noreffer">supporting link</a>.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-04-17</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://localhost:1313/posts/01_lorentz-attractor/" data-title="Lorentz Attractor" data-via="kamalbowselvam" data-hashtags="System Dyanmics,Python"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/01_lorentz-attractor/" data-hashtag="System Dyanmics"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://localhost:1313/posts/01_lorentz-attractor/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:1313/posts/01_lorentz-attractor/" data-title="Lorentz Attractor"><i class="fab fa-hacker-news fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/system-dyanmics/">System Dyanmics</a>,&nbsp;<a href="/tags/python/">Python</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/posts/02_gradient-descent/" class="next" rel="next" title="Gradient Descent">Gradient Descent<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/typeit.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"data":{"id-1":"cd ~","id-2":"cd ~"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

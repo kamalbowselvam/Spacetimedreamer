@@ -1,0 +1,44 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>All Posts - Kamal SELVAM</title>
+        <link>http://localhost:1313/posts/</link>
+        <description>All Posts | Kamal SELVAM</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 02 Jun 2023 21:57:40 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Torchlight - Simple Deep Learning Library</title>
+    <link>http://localhost:1313/posts/05_torchlight/</link>
+    <pubDate>Fri, 02 Jun 2023 21:57:40 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>http://localhost:1313/posts/05_torchlight/</guid>
+    <description><![CDATA[Article in development ]]></description>
+</item><item>
+    <title>Spectrogram for large audio</title>
+    <link>http://localhost:1313/posts/04_spectrogram/</link>
+    <pubDate>Wed, 23 Dec 2020 21:57:40 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>http://localhost:1313/posts/04_spectrogram/</guid>
+    <description><![CDATA[Article in development ]]></description>
+</item><item>
+    <title>Perceptron</title>
+    <link>http://localhost:1313/posts/03_perceptron/</link>
+    <pubDate>Mon, 22 Jun 2020 21:57:40 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>http://localhost:1313/posts/03_perceptron/</guid>
+    <description><![CDATA[Artcle in development ]]></description>
+</item><item>
+    <title>Gradient Descent</title>
+    <link>http://localhost:1313/posts/02_gradient-descent/</link>
+    <pubDate>Wed, 11 Dec 2019 21:57:40 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>http://localhost:1313/posts/02_gradient-descent/</guid>
+    <description><![CDATA[Introduction Gradient descent is a fundamental optimization algorithm widely used in machine learning and optimization problems. It is employed to minimize a function by iteratively moving in the direction of the steepest descent as indicated by the negative of the gradient. This article aims to explain the concepts behind gradient descent and its implementation in python.
+Before diving into gradient descent, it&rsquo;s crucial to understand the notion of optimization. In optimization, the goal is to find the minimum or maximum of a function.]]></description>
+</item><item>
+    <title>Lorentz Attractor</title>
+    <link>http://localhost:1313/posts/01_lorentz-attractor/</link>
+    <pubDate>Wed, 17 Apr 2019 10:57:40 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>http://localhost:1313/posts/01_lorentz-attractor/</guid>
+    <description><![CDATA[Introduction Lorenz system [1] is one of the well studied non-linear model in system dynamics. Even though being well explored and simulated, it is a beautiful simplistic system that showcase chaotic behaviour for particular set of initial conditions. The non-linear differential equations were initially studied by N. Lorenz, a meteorologist during 1963.
+$$ \tag{1} \frac {dx}{dt} = \sigma (y - x) $$ $$ \tag{2} \frac {dy}{dt} = x(\rho -z ) - y $$ $$ \tag{3} \frac {dz}{dt} = xy - \beta z $$]]></description>
+</item></channel>
+</rss>
