@@ -123,4 +123,4 @@ Gradient descent is a powerful optimization algorithm used to minimize functions
 
 ## Reference
 
-<a id="1">[1]</a> : Smith, J. (2020). *Introduction to Markdown*. Markdown Publishing. [https://markdownpublishing.com](https://markdownpublishing.com)
+<a id="1">[1]</a> : [Gradient Descent Derivation](https://mccormickml.com/2014/03/04/gradient-descent-derivation/)
