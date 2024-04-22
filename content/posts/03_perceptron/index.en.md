@@ -22,15 +22,9 @@ lightgallery: true
 
 The single-layer perceptron is one of the simplest neural network architectures. It's a linear classifier used for binary classification tasks. In this article, we'll break down the single-layer perceptron algorithm and implement it in Python. The single-layer perceptron consists of only one layer of artificial neurons, which is also called the output layer. It takes a set of input features, applies weights to them, sums up the weighted inputs, and then applies an activation function to produce an output.
 
-## Algorithm Overview
+## Implementation 
 
-1. **Initialize Weights:** Start with random weights for each input feature.
-2. **Calculate Output:** For each input sample, calculate the weighted sum of inputs.
-3. **Apply Activation:** Apply an activation function to the weighted sum.
-4. **Update Weights:** Adjust the weights based on the error between the predicted and actual outputs.
-5. **Repeat:** Iterate through steps 2-4 until convergence or a maximum number of iterations is reached.
-
-Let's implement this algorithm in Python:
+Intially a python class that accomadate the fuctions to intialize the hyper parameter to run the preceptron like the learning rate, number of iterations and the plot object for visualization purpose. 
 
 ```python
 from Visualization import DecisionBoundary
@@ -81,3 +75,9 @@ class Perceptron(object):
     def predict(self, X):
         return np.where(self.activation_function(X) >= 0.0, 1, -1)
 ```
+
+The ```fit(self,X,y)``` method takes two parameters ```X``` and ```y``` , where ```X``` is the input feature vector of the data and ```y``` is the target vector or the output vector respectively. ```activation_fuction(X)``` method underhood implements a linear model as defined below:
+
+> $$   y = W \cdot X + b $$
+
+In the above equation W and b are the weight and bias respectively, which are intialized randomly. A unit step is used as a activation function for the linear model. The activation fuction makes sure the value of the output is scaled between -1 and 1. Gradient Descent method is used to find the optimal parameter of the model by iterating over the data.

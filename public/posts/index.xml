@@ -23,7 +23,7 @@
     <pubDate>Mon, 22 Jun 2020 21:57:40 &#43;0800</pubDate>
     <author>Author</author>
     <guid>http://localhost:1313/posts/03_perceptron/</guid>
-    <description><![CDATA[Artcle in development ]]></description>
+    <description><![CDATA[Introduction The single-layer perceptron is one of the simplest neural network architectures. It&rsquo;s a linear classifier used for binary classification tasks. In this article, we&rsquo;ll break down the single-layer perceptron algorithm and implement it in Python. The single-layer perceptron consists of only one layer of artificial neurons, which is also called the output layer. It takes a set of input features, applies weights to them, sums up the weighted inputs, and then applies an activation function to produce an output.]]></description>
 </item><item>
     <title>Gradient Descent</title>
     <link>http://localhost:1313/posts/02_gradient-descent/</link>
