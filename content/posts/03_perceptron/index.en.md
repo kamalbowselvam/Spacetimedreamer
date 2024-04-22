@@ -9,7 +9,7 @@ authorLink: "https://kamalselvam.com"
 description: "implementation of Preceptron"
 resources:
 - name: "featured-image"
-  src: "featured-image.png"
+  src: "Figure1.png"
 
 tags: ["Machine Learning", "Python"]
 categories: ["Machine Learning"]
@@ -27,11 +27,6 @@ The single-layer perceptron is one of the simplest neural network architectures.
 Intially a python class that accomadate the fuctions to intialize the hyper parameter to run the preceptron like the learning rate, number of iterations and the plot object for visualization purpose. 
 
 ```python
-from Visualization import DecisionBoundary
-import numpy as np
-import matplotlib.pyplot as plt
-
-
 class Perceptron(object):
 
 
@@ -78,6 +73,56 @@ class Perceptron(object):
 
 The ```fit(self,X,y)``` method takes two parameters ```X``` and ```y``` , where ```X``` is the input feature vector of the data and ```y``` is the target vector or the output vector respectively. ```activation_fuction(X)``` method underhood implements a linear model as defined below:
 
-> $$   y = W \cdot X + b $$
+> $$   y = W \cdot x + b $$
 
-In the above equation W and b are the weight and bias respectively, which are intialized randomly. A unit step is used as a activation function for the linear model. The activation fuction makes sure the value of the output is scaled between -1 and 1. Gradient Descent method is used to find the optimal parameter of the model by iterating over the data.
+In the above equation W and b are the weight and bias respectively, which are intialized randomly. A unit step is used as a activation function for the linear model. The activation fuction scales the output between -1 and 1. Gradient Descent method is used to find the optimal parameter of the model by iterating over the data.
+
+To visualize the decision boundary a seperate class is created as shown below. ```plot_decesion_boundary()``` method takes the classifier parameter and predicts over arange of values in two dimensions, later a contour filled plot is applied to visualize the boundary predicted by the model. 
+
+
+```python
+class DecisionBoundary(object):
+
+
+    def __init__(self,X,y,resolution=0.02):
+        self.X = X
+        self.y = y
+        self.markers = ('s', 'x', 'o', '^', 'v')
+        self.colors = ('red', 'blue', 'lightgreen', 'gray', 'cyan')
+        self.cmap = ListedColormap(self.colors[:len(np.unique(y))])
+        self.x1_min, self.x1_max = X[:, 0].min() -1 , X[:, 0].max() +1
+        self.x2_min, self.x2_max = X[:, 1].min() -1 , X[:, 1].max() + 1
+
+        self.xx1, self.xx2 = np.meshgrid(np.arange(self.x1_min, self.x1_max, resolution),
+                               np.arange(self.x2_min, self.x2_max, resolution))
+
+
+    def plot_decision_boundary(self,classifier,itr):
+        Z = classifier.predict(np.array([self.xx1.ravel(), self.xx2.ravel()]).T)
+        Z = Z.reshape(self.xx1.shape)
+
+        fig = plt.figure()
+
+        cont = plt.contourf(self.xx1, self.xx2, Z, alpha=0.3, cmap=self.cmap)
+        plt.xlim(self.xx1.min(), self.xx1.max())
+        plt.ylim(self.xx2.min(), self.xx2.max())
+
+        for idx, cl in enumerate(np.unique(self.y)):
+            plt.scatter(x=self.X[self.y == cl, 0],
+                        y=self.X[self.y == cl, 1],
+                        c=self.colors[idx],
+                        alpha=0.8,
+                        marker=self.markers[idx],
+                        label=cl,
+                        edgecolors='black')
+        plt.savefig('img'+str(itr))
+        plt.clf()
+```
+
+![Lorentrz](demo.gif " Figure 3: Convergence of gradient descent algorithm on the synthetic data")
+
+## Conclusion
+
+The implementation showcased here provides a practical demonstration of how the perceptron learns to classify data by iteratively adjusting its weights and bias through the process of gradient descent. With each iteration, the perceptron edges closer to an optimal decision boundary that effectively separates the classes in the input data.
+
+Moreover, the visualization of the decision boundary, achieved through the contour plot, offers invaluable insight into how the perceptron learns and adapts. This dynamic visualization not only aids in understanding the training process but also demonstrates the convergence of the perceptron as it refines its parameters.
